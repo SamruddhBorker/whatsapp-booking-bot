@@ -1,0 +1,21 @@
+{
+  "business_name": "Coastal Café",
+  "open": "09:00",
+  "close": "22:00",
+  "last_booking": "21:00",
+  "slot_minutes": 30,
+  "tables_per_slot": 4,
+  "max_party": 8,
+  "max_days_ahead": 30,
+  "min_lead_minutes": 30,
+  "max_active_bookings": 3,
+  "closed_days": [],
+  "contact_phone": "+91 00000 00000",
+  "location_text": "📍 Coastal Café, Beach Road, Goa. Find us on Google Maps: https://maps.google.com (replace with your link)",
+  "menu_text": "🍽️ Our menu: https://example.com/menu (replace with your link). Fresh seafood, coffee and desserts.",
+  "faqs": [
+    {"keywords": ["wifi", "wi-fi"], "answer": "Yes, free Wi-Fi for all guests. Ask the staff for the password."},
+    {"keywords": ["parking"], "answer": "Free parking is available right outside the café."},
+    {"keywords": ["vegetarian", "vegan"], "answer": "Yes, we have plenty of vegetarian and vegan options on the menu."}
+  ]
+}
