@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
@@ -38,6 +39,9 @@ def build_reminders(store: Store, cfg: dict, today: date) -> list[tuple[int, str
 
 
 def main() -> None:
+    for stream in (sys.stdout, sys.stderr):  # reminder text contains emoji; piped Windows output is cp1252
+        if not stream.isatty():
+            stream.reconfigure(encoding="utf-8", errors="replace")
     whatsapp.load_env(HERE / ".env")
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)

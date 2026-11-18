@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -83,6 +84,9 @@ def make_handler(bot: Bot):
 
 
 def main() -> None:
+    for stream in (sys.stdout, sys.stderr):  # dry-run replies contain emoji; piped Windows output is cp1252
+        if not stream.isatty():
+            stream.reconfigure(encoding="utf-8", errors="replace")
     whatsapp.load_env(HERE / ".env")
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
